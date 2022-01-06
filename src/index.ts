@@ -1,18 +1,26 @@
-class Human{
-    public name: string;
-    public age: number;
-    private gender:string; //private형으로 클래스 내부에서만 사용가능
-    constructor(name:string,age:number,gender?:string){
-        this.name=name;
-        this.age=age;
-        this.gender=gender;
-    }
+class Block{
+    public index:number;
+    public hash:string;
+    public previousHash:string;
+    public data:string;
+    public timestamp:number;
+
+    constructor(index:number,
+        hash:string,
+        previousHash:string,
+        data:string,
+        timestamp:number){
+            this.index=index;
+            this.hash=hash;
+            this.previousHash=previousHash;
+            this.data=data;
+            this.timestamp=timestamp;
+        }
 }
-const lynn=new Human("Han",18,"male");
 
+const genesisBlock:Block= new Block(0,"10201","","Hello",123456);
 
-const sayHi=(person:Human) : string=>{
-    return `hello ${person.name}, you are ${person.age}, gender ${person.gender}`
-};  //각각 어떤 객체를 가지고 있는지 .name, .age들으로 알수 있음.
-sayHi(lynn); 
+let blockchain:[Block]=[genesisBlock];
+console.log(blockchain);
+
 export {};
